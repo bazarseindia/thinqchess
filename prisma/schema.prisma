@@ -1,0 +1,272 @@
+// Prisma Schema for Thinqchess Admin Panel
+
+generator client {
+  provider = "prisma-client-js"
+  runtime  = "node"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// ==========================================
+// COURSE REGISTRATION (existing)
+// ==========================================
+
+model Registration {
+  id        String   @id @default(cuid())
+  classesFor String  @default("Child")
+
+  // Student Info
+  studentFirstName  String
+  studentMiddleName String?
+  studentLastName   String
+  dob               String
+  gender            String
+  studentEmail      String?
+  studentPhone      String?
+
+  // Father Info
+  fatherFirstName String?
+  fatherMiddleName String?
+  fatherLastName  String?
+  fatherEmail     String?
+  fatherPhone     String?
+
+  // Mother Info
+  motherFirstName String?
+  motherMiddleName String?
+  motherLastName  String?
+  motherEmail     String?
+  motherPhone     String?
+
+  // Address
+  country       String?
+  state         String?
+  city          String?
+  addressLine1  String?
+  addressLine2  String?
+  pincode       String?
+
+  // Coaching
+  mode             String?
+  coachingCity     String?
+  preferredCentre  String?
+
+  // Referral
+  heardFrom    String?
+  otherSource  String?
+  refFirstName String?
+  refLastName  String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ==========================================
+// TOURNAMENT SYSTEM
+// ==========================================
+
+model Tournament {
+  id                    String   @id @default(cuid())
+  name                  String
+  description           String?
+  startDate             DateTime
+  endDate               DateTime
+  registrationStartDate DateTime
+  registrationEndDate   DateTime
+  flyerImage            String?
+  location              String?
+  isActive              Boolean  @default(true)
+  requireKscaId         Boolean  @default(false)
+  categories            String   @default("[]")
+
+  registrations TournamentEntry[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model TournamentEntry {
+  id             String   @id @default(cuid())
+  tournamentId   String
+  tournament     Tournament? @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
+  categoryId     String
+  categoryName   String
+
+  // Player Info
+  playerFirstName  String
+  playerMiddleName String?
+  playerLastName   String
+  email            String
+  phone            String?
+  dob              String?
+  gender           String?
+
+  // IDs
+  fideId String?
+  kscaId String?
+
+  // Address
+  country     String?
+  countryCode String?
+  state       String?
+  city        String?
+  address     String?
+
+  // Payment
+  amountPaid     Float?   @default(0)
+  discountCode   String?
+  discountAmount Float?   @default(0)
+  paymentId      String?
+  razorpayOrderId String?
+  paymentStatus  String   @default("pending")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ==========================================
+// DISCOUNT CODES
+// ==========================================
+
+model DiscountCode {
+  id                 String    @id @default(cuid())
+  code               String    @unique
+  codeType           String    @default("percentage")
+  discountPercentage Float?
+  discountAmount     Float?
+  usageLimit         Int       @default(100)
+  usedCount          Int       @default(0)
+  expiryDate         DateTime?
+  isActive           Boolean   @default(true)
+  createdAt          DateTime  @default(now())
+}
+
+// ==========================================
+// BLOG CMS
+// ==========================================
+
+model BlogPost {
+  id            String   @id @default(cuid())
+  title         String
+  slug          String   @unique
+  content       String
+  excerpt       String?
+  featuredImage String?
+  category      String?
+  tags          String?
+  isPublished   Boolean  @default(false)
+  author        String   @default("ThinQ Chess")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+// ==========================================
+// GALLERY
+// ==========================================
+
+model GalleryItem {
+  id        String   @id @default(cuid())
+  type      String   @default("image")
+  url       String
+  caption   String?
+  category  String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+// ==========================================
+// SITE CONTENT (Pages + Images + TopBar)
+// ==========================================
+
+model SiteContent {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+// ==========================================
+// ADMIN USERS
+// ==========================================
+
+model AdminUser {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("admin")
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+// ==========================================
+// DEMO REQUESTS (existing)
+// ==========================================
+
+model DemoRequest {
+  id      String @id @default(cuid())
+  name    String
+  email   String
+  phone   String?
+  message String?
+
+  createdAt DateTime @default(now())
+}
+
+// ==========================================
+// CONTACT MESSAGES (existing)
+// ==========================================
+
+model ContactMessage {
+  id      String @id @default(cuid())
+  name    String
+  email   String
+  phone   String?
+  subject String?
+  message String
+
+  createdAt DateTime @default(now())
+}
+
+// ==========================================
+// TRAIN YOUR TRAINER
+// ==========================================
+
+model TrainYourTrainer {
+  id         String   @id @default(cuid())
+  name       String
+  email      String
+  phone      String?
+  experience String?
+  message    String?
+  resume     String?
+  createdAt  DateTime @default(now())
+}
+
+// ==========================================
+// BACKUP LOG
+// ==========================================
+
+model BackupLog {
+  id        String   @id @default(cuid())
+  filename  String
+  size      String?
+  type      String   @default("manual")
+  status    String   @default("success")
+  createdAt DateTime @default(now())
+}
+
+// ==========================================
+// NOTIFICATIONS
+// ==========================================
+
+model Notification {
+  id        String   @id @default(cuid())
+  type      String
+  title     String
+  message   String
+  isRead    Boolean  @default(false)
+  link      String?
+  createdAt DateTime @default(now())
+}
