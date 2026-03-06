@@ -4,6 +4,9 @@ import { FileEdit, Save, Loader2, Eye } from "lucide-react";
 
 const PAGE_KEYS = [
     { key: "faq", label: "FAQs", description: "Frequently Asked Questions page content" },
+    { key: "home_hero", label: "Home Hero", description: "Main landing page hero text (JSON format: {title, subtitle, cta})" },
+    { key: "home_stats", label: "Home Stats", description: "Home page stats counters (JSON array of {label, value, suffix})" },
+    { key: "footer_content", label: "Footer Content", description: "Footer descriptions and contact info (JSON format: {description, copy, phone, email, address})" },
     { key: "privacy_policy", label: "Privacy Policy", description: "Privacy policy page content" },
     { key: "terms", label: "Terms & Conditions", description: "Terms and conditions page content" },
 ];

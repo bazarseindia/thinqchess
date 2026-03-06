@@ -44,7 +44,7 @@ const RegistrationPage = () => {
         studentFirstName: "",
         studentMiddleName: "",
         studentLastName: "",
-        dob: "",
+        age: "",
         gender: "",
         studentEmail: "",
         studentPhone: "",
@@ -131,11 +131,11 @@ const RegistrationPage = () => {
     const validatePhase = () => {
         setError("");
         if (phase === 1) {
-            if (!formData.studentFirstName || !formData.studentLastName || !formData.dob || !formData.gender) {
+            if (!formData.studentFirstName || !formData.studentLastName || !formData.age || !formData.gender) {
                 setError("Please complete all required fields.");
                 return false;
             }
-            const age = new Date().getFullYear() - new Date(formData.dob).getFullYear();
+            const age = parseInt(formData.age);
             if (age < 3) { setError("Student must be at least 3 years old."); return false; }
             if (classesFor === "Child" && age > 18) { setError("Age above 18 must select 'Adult' category."); return false; }
             if (classesFor !== "Child" && (!formData.studentEmail || !formData.studentPhone)) {
@@ -206,9 +206,8 @@ const RegistrationPage = () => {
                     participant_last_name: formData.studentLastName,
                     email: formData.studentEmail || formData.fatherEmail || formData.motherEmail,
                     phone: formData.studentPhone || formData.fatherPhone || formData.motherPhone,
-                    age: new Date().getFullYear() - new Date(formData.dob).getFullYear(),
+                    age: formData.age,
                     course_type: formData.mode,
-                    dob: formData.dob,
                     gender: formData.gender,
                     father_name: `${formData.fatherFirstName} ${formData.fatherLastName}`,
                     mother_name: `${formData.motherFirstName} ${formData.motherLastName}`,
@@ -324,7 +323,7 @@ const RegistrationPage = () => {
                         <Star className="fill-[#FFB31A]" size={12} /> Enrollment Gateway
                     </motion.div>
                     <motion.h1 initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }} className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-tight mb-6 text-white drop-shadow-2xl">
-                        ACADEMY <span className="text-[#FFB31A] italic">ADMISSIONS.</span>
+                        COMPLETE YOUR <span className="text-[#FFB31A]">ENROLLMENT</span>
                     </motion.h1>
                     <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="text-lg md:text-xl font-medium text-white/80 mx-auto max-w-2xl drop-shadow-lg leading-relaxed">
                         Join 15,000+ promising players in Bangalore's most elite chess training program. Complete the secure intake form below to begin your mastery journey.
@@ -442,7 +441,7 @@ const RegistrationPage = () => {
                                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                                         <FormInput label="Student First Name *" name="studentFirstName" value={formData.studentFirstName} onChange={handleInputChange} placeholder="Ex: Magnus" isDark={isDark} />
                                                         <FormInput label="Student Last Name *" name="studentLastName" value={formData.studentLastName} onChange={handleInputChange} placeholder="Ex: Carlsen" isDark={isDark} />
-                                                        <FormInput label="Date of Birth *" name="dob" type="date" value={formData.dob} onChange={handleInputChange} isDark={isDark} />
+                                                        <FormInput label="Child's Age (in years) *" name="age" type="number" value={formData.age} onChange={handleInputChange} placeholder="Ex: 8" isDark={isDark} />
 
                                                         <div className="space-y-4">
                                                             <label className="text-[10px] font-black uppercase tracking-widest opacity-40 px-2">Gender *</label>
@@ -665,7 +664,7 @@ const RegistrationPage = () => {
                                                                 <div className={`mt-1 w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all ${formData.tc1 ? 'bg-[#FFB31A] border-[#FFB31A]' : 'border-white/10 group-hover:border-[#FFB31A]'}`}>
                                                                     {formData.tc1 && <div className="w-2 h-4 border-r-2 border-b-2 border-[#2B3AA0] rotate-45 mb-1" />}
                                                                 </div>
-                                                                <span className="text-sm font-medium italic opacity-60 group-hover:opacity-100 transition-opacity">I agree to follow the Academy's code of conduct and training protocols.</span>
+                                                                <span className="text-sm font-medium italic opacity-60 group-hover:opacity-100 transition-opacity">I agree to follow the Academy's code of conduct and training protocols. <Link href="/privacy-policy" className="text-[#FFB31A] underline">Privacy Policy</Link> applies.</span>
                                                             </label>
 
                                                             <label className="flex items-start gap-4 group cursor-pointer">
@@ -713,7 +712,7 @@ const RegistrationPage = () => {
                                                     disabled={isSubmitting}
                                                     className={`px-16 py-8 rounded-[1.5rem] font-black uppercase tracking-[0.3em] text-[11px] transition-all flex items-center gap-4 shadow-2xl ${isSubmitting ? 'bg-white/10 text-white/10' : 'bg-[#FFB31A] text-[#2B3AA0] hover:bg-white'}`}
                                                 >
-                                                    {isSubmitting ? 'SUBMITTING...' : 'COMPLETE REGISTRATION'} <ArrowRight size={18} />
+                                                    {isSubmitting ? 'SUBMITTING...' : 'SUBMIT REGISTRATION'} <ArrowRight size={18} />
                                                 </button>
                                             )}
                                         </div>

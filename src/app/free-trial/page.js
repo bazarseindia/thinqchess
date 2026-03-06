@@ -99,11 +99,7 @@ export default function FreeTrialPage() {
                 <div className="w-full max-w-7xl mx-auto mt-8 md:mt-12 xl:mt-16">
 
                     {/* Back to Home Button */}
-                    <div className="mb-8">
-                        <Link href="/" className={`inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest hover:text-[#FFB31A] transition-colors ${isDark ? 'text-slate-400' : 'text-[#2B3AA0]/60'}`}>
-                            <ArrowLeft size={16} /> BACK TO ACADEMY
-                        </Link>
-                    </div>
+                    {/* Breadcrumb removed as per feedback */}
 
                     <div className="flex flex-col lg:flex-row gap-8 xl:gap-12 w-full shadow-2xl rounded-3xl overflow-hidden relative border border-black/5 dark:border-white/5">
 
@@ -119,12 +115,11 @@ export default function FreeTrialPage() {
                             </div>
 
                             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }} className="relative z-10">
-                                <Crown className="w-12 h-12 text-[#FFB31A] mb-8" />
-                                <h2 className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter leading-tight mb-6">
-                                    START YOUR <br /><span className="text-[#FFB31A]">JOURNEY.</span>
+                                <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-tight mb-6">
+                                    BOOK A FREE <br /><span className="text-[#FFB31A]">DEMO TODAY</span>
                                 </h2>
                                 <p className="text-lg md:text-xl font-medium text-slate-300 mb-10 leading-relaxed opacity-90 max-w-sm">
-                                    Join the elite league of chess thinkers. Experience our curriculum firsthand with a specialized 1-on-1 assessment trial.
+                                    Join the elite league of chess thinkers with a specialized 1-on-1 assessment session.
                                 </p>
                             </motion.div>
 
@@ -169,8 +164,8 @@ export default function FreeTrialPage() {
                             <div className="max-w-2xl mx-auto w-full">
                                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
 
-                                    <h3 className={`text-2xl font-black uppercase tracking-tight mb-2 ${isDark ? 'text-white' : 'text-[#2B3AA0]'}`}>Book Your Free Trial</h3>
-                                    <p className={`text-sm mb-10 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Please fill out the details below. All fields marked with * are mandatory.</p>
+                                    <h3 className={`text-2xl font-black uppercase tracking-tight mb-2 ${isDark ? 'text-white' : 'text-[#2B3AA0]'}`}>Get a Free Assessment</h3>
+                                    <p className={`text-sm mb-10 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Please fill out the details below. Our team will contact you for a demo.</p>
 
                                     <form onSubmit={handleSubmit} className="space-y-6">
                                         {/* Parent & Child Names */}
@@ -221,7 +216,7 @@ export default function FreeTrialPage() {
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             {/* Child Age */}
                                             <div>
-                                                <label className={`block text-[10px] font-black uppercase tracking-widest mb-2 ${isDark ? 'text-slate-400' : 'text-[#2B3AA0]/70'}`}>Child's Age *</label>
+                                                <label className={`block text-[10px] font-black uppercase tracking-widest mb-2 ${isDark ? 'text-slate-400' : 'text-[#2B3AA0]/70'}`}>Child's Age (in years) *</label>
                                                 <input required type="number" name="age" value={formData.age} onChange={handleInputChange} placeholder="E.g. 8" className="w-full form-input" />
                                             </div>
                                         </div>
@@ -249,7 +244,7 @@ export default function FreeTrialPage() {
                                         <div className="flex items-start gap-3 pt-2">
                                             <input type="checkbox" required className="mt-1" id="terms" />
                                             <label htmlFor="terms" className={`text-[11px] leading-tight font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                                                I agree to receive communications regarding my trial class via email and WhatsApp.
+                                                I agree to receive communications regarding my trial class via email and WhatsApp. <Link href="/privacy-policy" className="text-[#FFB31A] underline">Privacy Policy</Link> applies.
                                             </label>
                                         </div>
 
@@ -257,7 +252,7 @@ export default function FreeTrialPage() {
                                         <div className="pt-6">
                                             <button type="submit" disabled={isSubmitting || !formData.pastTraining} className={`w-full group h-16 rounded-2xl flex justify-center items-center gap-4 text-xs font-black uppercase tracking-[0.2em] transition-all relative overflow-hidden shadow-2xl ${(isSubmitting || !formData.pastTraining) ? 'bg-slate-300 text-slate-500 cursor-not-allowed' : 'bg-[#FFB31A] text-[#2B3AA0] hover:-translate-y-1'}`}>
                                                 <div className="absolute inset-0 bg-white transition-transform duration-500 ease-in-out translate-y-[100%] group-hover:translate-y-0 z-0"></div>
-                                                <span className="relative z-10">{isSubmitting ? 'PROCESSING...' : 'CONFIRM TRIAL BOOKING'}</span>
+                                                <span className="relative z-10">{isSubmitting ? 'PROCESSING...' : 'CONFIRM DEMO BOOKING'}</span>
                                                 {!isSubmitting && <ArrowRight className="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-2" />}
                                             </button>
                                         </div>

@@ -44,13 +44,13 @@ const BlogListPage = () => {
                     className="flex flex-col items-center text-center space-y-4"
                 >
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#FFB31A]/30 bg-[#FFB31A]/10 text-[#FFB31A] text-xs font-bold uppercase tracking-[0.2em] shadow-sm">
-                        Think Deeply
+                        Think Ahead
                     </div>
                     <h1 className="text-4xl md:text-5xl lg:text-7xl font-black uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#FFB31A] to-orange-500 leading-tight">
-                        Insights & Strategies
+                        Insights & Mastery
                     </h1>
                     <p className={`text-sm md:text-base max-w-2xl font-medium mt-4 ${isDark ? 'text-gray-400' : 'text-slate-500'}`}>
-                        Expert analysis, academy news, and grandmaster-level theories curated by the ThinQ Editorial Board. Discover the moves that shape champions.
+                        Stay one move ahead with expert analysis, academy breakthroughs, and grandmaster-level theories curated by the ThinQ Editorial Board.
                     </p>
                 </motion.div>
             </div>

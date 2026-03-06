@@ -99,20 +99,27 @@ export default function GalleryPage() {
 
         {/* Header Section */}
         <div className="text-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#FFB31A]/30 bg-[#FFB31A]/10 text-[#FFB31A] text-[10px] font-black uppercase tracking-[0.3em] mb-6 shadow-sm"
+          >
+            The Visual Legacy
+          </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter mb-4"
+            className="text-4xl md:text-5xl lg:text-7xl font-black uppercase tracking-tighter mb-4 italic leading-none"
           >
-            Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FFB31A] to-orange-500">Moments</span>
+            ACADEMY <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FFB31A] to-orange-500">MOMENTS.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className={`text-sm md:text-base max-w-2xl mx-auto font-medium ${isDark ? 'text-gray-400' : 'text-slate-500'}`}
+            className={`text-base md:text-lg max-w-2xl mx-auto font-medium italic ${isDark ? 'text-gray-400' : 'text-slate-500'}`}
           >
-            Explore the finest moments of ThinQ Chess Academy. From intense state-level tournaments to our everyday foundation classes.
+            Through the lens: Witness the journey of strategic growth, competitive triumphs, and everyday brilliance at ThinQ Chess Academy.
           </motion.p>
         </div>
 

@@ -62,7 +62,7 @@ export default function ServicesPage() {
             </section>
 
             {/* 2. THE OFFLINE EXPERIENCE (Bento Grid Style) */}
-            <section className={`py-32 relative z-20 -mt-20 rounded-t-[4rem] md:rounded-t-[6rem] ${isDark ? 'bg-[#050A18]' : 'bg-[#FAFAFA]'}`}>
+            <section id="offline" className={`py-32 relative z-20 -mt-20 rounded-t-[4rem] md:rounded-t-[6rem] ${isDark ? 'bg-[#050A18]' : 'bg-[#FAFAFA]'}`}>
                 <div className="container mx-auto px-6 max-w-7xl">
 
                     {/* Section Header */}
@@ -165,6 +165,7 @@ export default function ServicesPage() {
 
                         {/* ONLINE GROUP CARD */}
                         <motion.div
+                            id="online-group"
                             initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
                             className={`rounded-[3rem] p-10 md:p-14 border shadow-2xl flex flex-col relative overflow-hidden group hover:-translate-y-2 transition-all duration-500 ${isDark ? 'bg-[#0A1128] border-[#111B3A]' : 'bg-white border-white'}`}
                         >
@@ -210,6 +211,7 @@ export default function ServicesPage() {
 
                         {/* ONLINE 1-v-1 CARD (ULTRA PREMIUM) */}
                         <motion.div
+                            id="one-on-one"
                             initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ delay: 0.2 }}
                             className={`rounded-[3rem] p-10 md:p-14 shadow-[0_40px_100px_rgba(43,58,160,0.25)] flex flex-col relative overflow-hidden group hover:-translate-y-2 transition-all duration-500 scale-[1.02] border ${isDark ? 'bg-gradient-to-b from-[#1E2D5A] to-[#0A1128] border-[#FFB31A]/20' : 'bg-[#2B3AA0] border-[#2B3AA0]'}`}
                         >

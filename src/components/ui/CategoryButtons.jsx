@@ -76,13 +76,13 @@ const CategoryButtons = () => {
                         viewport={{ once: true }}
                         className="inline-block px-4 py-1.5 rounded-full border border-[#FFB31A]/30 bg-[#FFB31A]/10 text-[#FFB31A] text-[9px] font-black uppercase tracking-[0.3em] mb-6"
                     >
-                        The Mastery Path
+                        Our Framework
                     </motion.div>
-                    <h2 className={`text-4xl md:text-5xl lg:text-7xl font-black italic uppercase tracking-tighter leading-none mb-6 ${isDark ? 'text-white' : 'text-[#2B3AA0]'}`}>
-                        YOUR CHESS <br /><span className="text-[#FFB31A]">JOURNEY.</span>
+                    <h2 className={`text-4xl md:text-5xl lg:text-7xl font-black uppercase tracking-tighter leading-none mb-6 ${isDark ? 'text-white' : 'text-[#2B3AA0]'}`}>
+                        OUR <span className="text-[#FFB31A]">FRAMEWORK</span>
                     </h2>
                     <p className={`text-base md:text-xl font-medium max-w-2xl mx-auto ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                        Follow our structured timeline from initial curiosity to professional excellence. Every step is a milestone.
+                        A systematic roadmap designed to take young minds from the basics of chess to advanced tactical mastery.
                     </p>
                 </div>
 

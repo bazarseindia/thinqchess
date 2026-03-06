@@ -77,24 +77,25 @@ export default function Home() {
                             viewport={{ once: true }}
                             className={`inline-block px-6 py-2 border-l-4 border-[#2B3AA0] text-[10px] font-black uppercase tracking-[0.4em] mb-8 ${isDark ? 'bg-white/5 text-[#FFB31A]' : 'bg-[#2B3AA0]/5 text-[#2B3AA0]'}`}
                         >
-                            The Academy Advantage
+                            Academy Advantage
                         </motion.div>
-                        <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 md:mb-8 italic leading-tight uppercase tracking-tight ${isDark ? 'text-white' : 'text-[#2B3AA0]'}`}>WHY <span className="text-[#FFB31A]">CHOOSE</span> <br className="hidden md:block" /> THINQ CHESS</h2>
+                        <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 md:mb-8 leading-tight uppercase tracking-tight ${isDark ? 'text-white' : 'text-[#2B3AA0]'}`}>WHY <span className="text-[#FFB31A]">CHOOSE</span> <br className="hidden md:block" /> THINQ CHESS</h2>
                         <div className="w-16 h-1 bg-[#FFB31A] mx-auto mb-10"></div>
                         <p className={`text-base md:text-xl font-medium leading-relaxed max-w-2xl mx-auto ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                            Our academy approach ensures continuity, structured learning, and long-term support through a strong, system-driven training framework.
+                            Our systematic approach ensures continuous growth through expert-led sessions and a structured development path.
                         </p>
                     </div>
 
                     {/* 6 Cards Grid — 3 columns */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10 relative z-10">
                         {[
-                            { title: "Structured Curriculum", desc: "Scientific modules with clear, measurable learning outcomes from foundation to pro levels.", icon: BookOpen },
-                            { title: "Personalized Attention", desc: "Regular game analysis and feedback ensures every child's unique journey is guided.", icon: UserCheck },
-                            { title: "Transparent Progress", desc: "Regular Parent-Teacher Meetings (PTMs) for clear, transparent updates on your child's growth.", icon: BarChart3 },
-                            { title: "Confidence Building", desc: "Regular online and offline tournaments to build a healthy competitive mindset.", icon: Trophy },
-                            { title: "Expert Instruction", desc: "Training guided by experienced and qualified child-friendly chess tutors.", icon: GraduationCap },
-                            { title: "Elite Programs", desc: "Elite batch program for high-potential students focused on competitive professional growth.", icon: Crown }
+                            { title: "Structured Curriculum", desc: "Our scientific modules ensure clear, measurable learning outcomes from beginner to professional levels.", icon: BookOpen },
+                            { title: "Personalized Support", desc: "Every child receives tailored feedback and game analysis to guide their unique journey.", icon: UserCheck },
+                            { title: "Transparent Progress", desc: "We maintain open communication with parents through regular updates and progress tracking.", icon: BarChart3 },
+                            { title: "Confidence Building", desc: "Tournament exposure helps students develop a healthy competitive mindset and resilience.", icon: Trophy },
+                            { title: "Expert Coaching", desc: "Our child-friendly trainers are experienced professionals dedicated to student growth.", icon: GraduationCap },
+                            { title: "Flexible Schedule", desc: "Choose from multiple time slots for both online and offline sessions to fit your routine.", icon: Clock },
+                            { title: "Interactive Platform", desc: "Our engaging learning platform makes complex concepts easy to understand through play.", icon: Monitor }
                         ].map((item, i) => {
                             const Icon = item.icon;
                             return (
@@ -126,57 +127,8 @@ export default function Home() {
                     </div>
 
 
-
-                    {/* Quick Highlights Dashboard */}
-                    <div className="mt-16 md:mt-24 lg:mt-32 bg-[#2B3AA0] p-8 sm:p-12 lg:p-24 relative overflow-hidden rounded-2xl shadow-[0_50px_100px_-20px_rgba(43,58,160,0.3)]">
-                        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white opacity-[0.02] rounded-full -mr-64 -mt-64 blur-3xl"></div>
-                        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#FFB31A] opacity-[0.05] rounded-full -ml-32 -mb-32 blur-3xl"></div>
-
-                        <div className="text-center mb-16 relative z-10">
-                            <div className="text-[#FFB31A] font-black uppercase tracking-[0.4em] text-[10px] mb-4">Quick Highlights</div>
-                            <h3 className="text-3xl md:text-4xl font-black text-white italic uppercase tracking-tight">What Sets Us <span className="text-[#FFB31A]">Apart</span></h3>
-                        </div>
-
-                        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 sm:gap-x-12 sm:gap-y-16">
-                            {[
-                                { text: "Programs from foundation to professional level", icon: Layers },
-                                { text: "Regular online and offline tournaments", icon: Trophy },
-                                { text: "Progress tracked and shared with parents", icon: BarChart3 },
-                                { text: "Classes led by trained, child-friendly trainers", icon: UserCheck },
-                                { text: "Flexible schedules", icon: Clock },
-                                { text: "Online and Offline Training Available", icon: Monitor }
-                            ].map((highlight, i) => {
-                                const Icon = highlight.icon;
-                                return (
-                                    <motion.div
-                                        key={i}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: i * 0.1 }}
-                                        viewport={{ once: true }}
-                                        className="flex gap-5 items-start group"
-                                    >
-                                        <div className="w-12 h-12 border-2 border-[#FFB31A]/40 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-[#FFB31A] group-hover:border-[#FFB31A] transition-all duration-500">
-                                            <Icon className="w-5 h-5 text-[#FFB31A] group-hover:text-[#2B3AA0] transition-colors" />
-                                        </div>
-                                        <div>
-                                            <div className="text-white text-base font-bold leading-snug mb-2 group-hover:text-[#FFB31A] transition-colors">
-                                                {highlight.text}
-                                            </div>
-                                            <div className="w-8 h-0.5 bg-[#FFB31A]/20 group-hover:w-16 group-hover:bg-[#FFB31A]/50 transition-all duration-500"></div>
-                                        </div>
-                                    </motion.div>
-                                );
-                            })}
-                        </div>
-
-                        <div className="mt-20 text-center relative z-10 pt-12 border-t border-white/10">
-                            <Link href="/free-trial" className="btn-gold px-16 py-6 text-sm font-black tracking-[0.2em] transform hover:scale-105 transition-all inline-flex items-center group shadow-xl shadow-black/20 rounded-lg">
-                                <span className="relative z-10">BOOK A FREE TRIAL CLASS</span>
-                                <ArrowRight className="ml-6 w-5 h-5 group-hover:translate-x-3 transition-transform" />
-                            </Link>
-                        </div>
-                    </div>
+                    {/* Section spacing */}
+                    <div className="mt-16 md:mt-24 lg:mt-32"></div>
                 </div>
             </section>
 
@@ -194,10 +146,10 @@ export default function Home() {
                         </motion.div>
                         <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black leading-[0.9] tracking-tight mb-8 md:mb-10 relative z-10 ${isDark ? 'text-white' : 'text-[#2B3AA0]'}`}>
                             BEYOND THE <br />
-                            <span className="text-[#FFB31A]">CHESSBOARD.</span>
+                            <span className="text-[#FFB31A]">CHESSBOARD</span>
                         </h2>
-                        <p className={`text-base md:text-xl font-medium leading-relaxed italic max-w-3xl mx-auto ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                            &quot;Every class, every move, and every tournament is thoughtfully planned to sharpen thinking skills while keeping learning fun, engaging, and age-appropriate.&quot;
+                        <p className={`text-base md:text-xl font-medium leading-relaxed max-w-3xl mx-auto ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                            Our systematic approach transforms young minds by fostering critical thinking, discipline, and emotional intelligence through the game of chess.
                         </p>
                     </div>
 
@@ -214,10 +166,10 @@ export default function Home() {
                                 </p>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                     {[
-                                        "Parent-Teacher Meetings",
-                                        "Online Tournaments",
-                                        "Psychology Sessions",
-                                        "Mentorship Programs"
+                                        "Focus & Discipline",
+                                        "Problem Solving Skills",
+                                        "Strategic Decision Making",
+                                        "Emotional Resilience"
                                     ].map((item, i) => (
                                         <div key={i} className={`flex items-center gap-3 text-sm font-bold px-4 py-3 rounded-lg ${isDark ? 'text-white bg-white/5' : 'text-[#2B3AA0] bg-slate-50'}`}>
                                             <div className="w-2 h-2 bg-[#FFB31A] rounded-full shrink-0"></div>
@@ -272,10 +224,10 @@ export default function Home() {
             <section className={`py-16 md:py-24 lg:py-32 text-center overflow-hidden ${isDark ? 'bg-[#0A1128]' : 'bg-white'}`}>
                 <div className="container mx-auto px-4 sm:px-6">
                     <div className="mb-12 md:mb-20 max-w-3xl mx-auto">
-                        <div className="text-[#FFB31A] font-black uppercase tracking-[0.4em] text-[10px] mb-6">Academy Excellence</div>
-                        <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black italic uppercase tracking-tight mb-6 md:mb-8 ${isDark ? 'text-white' : 'text-[#2B3AA0]'}`}>THE <span className="text-[#FFB31A]">WALL</span> OF FAME</h2>
+                        <div className="text-[#FFB31A] font-black uppercase tracking-[0.4em] text-[10px] mb-6">Explore Thinq Chess World</div>
+                        <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black italic uppercase tracking-tight mb-6 md:mb-8 ${isDark ? 'text-white' : 'text-[#2B3AA0]'}`}>THE <span className="text-[#FFB31A]">ACADEMY</span> MOMENTS</h2>
                         <div className="w-12 h-1 bg-[#FFB31A] mx-auto mb-6 md:mb-8"></div>
-                        <p className={`text-base md:text-xl font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Celebrating our students&apos; strategic milestones and achievements across global tournaments.</p>
+                        <p className={`text-base md:text-xl font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Witness the journey of our students through tournaments, workshops, and celebrations.</p>
                     </div>
 
                     <div className="relative w-full overflow-hidden mb-12" style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
@@ -312,9 +264,9 @@ export default function Home() {
                             whileInView={{ opacity: 1 }}
                             className="text-[#FFB31A] font-black uppercase tracking-[0.4em] text-[10px] mb-6"
                         >
-                            Parent Stories
+                            Cheers & Reviews
                         </motion.div>
-                        <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black italic leading-tight tracking-tight uppercase ${isDark ? 'text-white' : 'text-[#2B3AA0]'}`}>THE <span className="text-[#FFB31A]">THINQ</span> IMPACT</h2>
+                        <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black italic leading-tight tracking-tight uppercase ${isDark ? 'text-white' : 'text-[#2B3AA0]'}`}>VOICES OF <span className="text-[#FFB31A]">TRUST</span></h2>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 relative z-10">
@@ -385,8 +337,8 @@ export default function Home() {
                         <p className="text-xl md:text-2xl text-slate-300 font-medium mb-16 max-w-2xl mx-auto opacity-90 leading-relaxed">
                             Ready to unlock the thinking potential within your child? Start with a free trial session today.
                         </p>
-                        <Link href="/free-trial" className="btn-gold px-10 sm:px-16 lg:px-20 py-5 sm:py-6 lg:py-7 text-sm sm:text-base font-black tracking-widest shadow-[0px_30px_80px_rgba(255,179,26,0.3)] transform hover:scale-105 transition-all duration-500 rounded-lg inline-block">
-                            BOOK A FREE TRIAL CLASS
+                        <Link href="/registration" className="btn-gold px-10 sm:px-16 lg:px-20 py-5 sm:py-6 lg:py-7 text-sm sm:text-base font-black tracking-widest shadow-[0px_30px_80px_rgba(255,179,26,0.3)] transform hover:scale-105 transition-all duration-500 rounded-lg inline-block">
+                            ENROL NOW
                         </Link>
                     </div>
                 </div>
